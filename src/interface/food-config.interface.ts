@@ -4,7 +4,8 @@ export interface FoodTemplateConfig {
   subTextColor: string,
   themeColor: string,
   logoFileName: string,
-  bgImageFileName: string
+  bgImageFileName: string,
+  audioFileName: string
 }
 
 export interface FoodContentConfig {

@@ -5,7 +5,8 @@ import {
 	useCurrentFrame,
 	useVideoConfig,
   spring,
-  staticFile
+  staticFile,
+  Audio
 } from 'remotion';
 import {Logo} from './components/Logo';
 import {ContentContainer} from './components/ContentContainer';
@@ -77,39 +78,42 @@ export const FoodTemplate: React.FC<{}> = () => {
 	// A <AbsoluteFill> is just a absolutely positioned <div>!
 	return (
 		<AbsoluteFill style={bgImageStyles}>
+      <>
+        <Audio src={staticFile(TemplateConstant.audioFileName)} />
 
-      <AbsoluteFill>
+        <AbsoluteFill>
 
-        {/*  screen one start  */}
-        <AbsoluteFill style={{opacity: screenOneOpacity}}>
-          <AbsoluteFill style={{transform: `translateY(${logoTranslation}px)`}}>
-            <Logo />
+          {/*  screen one start  */}
+          <AbsoluteFill style={{opacity: screenOneOpacity}}>
+            <AbsoluteFill style={{transform: `translateY(${logoTranslation}px)`}}>
+              <Logo />
+            </AbsoluteFill>	
+
+            <Sequence from={10}>
+              <Title 
+                titleText={TemplateContentConstant.titleText} 
+                titleColor={TemplateConstant.titleColor}
+                themeColor={TemplateConstant.themeColor}
+              />
+            </Sequence>
+          
+          </AbsoluteFill>
+          {/*  screen one end  */}
+
+          <AbsoluteFill style={{opacity: frameOneOpacity}}>
+            <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[0]} />
           </AbsoluteFill>	
 
-          <Sequence from={10}>
-            <Title 
-              titleText={TemplateContentConstant.titleText} 
-              titleColor={TemplateConstant.titleColor}
-              themeColor={TemplateConstant.themeColor}
-            />
-          </Sequence>
-        
-        </AbsoluteFill>
-        {/*  screen one end  */}
+          <AbsoluteFill style={{opacity: frameTwoOpacity}}>
+            <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[1]} />
+          </AbsoluteFill>	
 
-        <AbsoluteFill style={{opacity: frameOneOpacity}}>
-          <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[0]} />
-        </AbsoluteFill>	
+          <AbsoluteFill style={{opacity: frameThreeOpacity}}>
+            <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[2]} />
+          </AbsoluteFill>	
 
-        <AbsoluteFill style={{opacity: frameTwoOpacity}}>
-          <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[1]} />
-        </AbsoluteFill>	
-
-        <AbsoluteFill style={{opacity: frameThreeOpacity}}>
-          <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[2]} />
-        </AbsoluteFill>	
-
-      </ AbsoluteFill>
+        </ AbsoluteFill>
+      </>
 		</AbsoluteFill>
 	);
 };

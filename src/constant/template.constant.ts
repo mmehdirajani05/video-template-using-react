@@ -6,7 +6,8 @@ export const TemplateConstant: FoodTemplateConfig = {
   subTextColor: 'white',
   themeColor: '#8e5123',
   logoFileName: 'logo.png',
-  bgImageFileName: 'bg-image.jpg'
+  bgImageFileName: 'bg-image.jpg',
+  audioFileName: 'audio.mp3'
 }
 
 export const TemplateContentConstant: FoodContentConfig = {
