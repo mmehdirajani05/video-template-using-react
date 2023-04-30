@@ -51,8 +51,26 @@ export const FoodTemplate: React.FC<{}> = () => {
 
   const screenTwoOpacity = interpolate(
 		frame,
-		[0, 100, 101, 300],
+		[0, 90, 92, 300],
 		[0, 0 , 1, 0]
+	);
+
+  const frameOneOpacity = interpolate(
+		frame,
+		[0, 100, 101, 200],
+		[0, 0 , 1, 0]
+	);
+
+  const frameTwoOpacity = interpolate(
+		frame,
+		[0, 100, 200, 201, 300],
+		[0, 0 , 0, 1, 0]
+	);
+
+  const frameThreeOpacity = interpolate(
+		frame,
+		[0, 100, 200, 300, 301, 400],
+		[0, 0 , 0, 0, 1, 0]
 	);
 
   const bgImageStyles = {
@@ -60,6 +78,16 @@ export const FoodTemplate: React.FC<{}> = () => {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover'
+  }
+
+  const getFrameOpacity = (index: number) => {
+    if (index === 1) {
+      return frameOneOpacity
+    } else if (index === 2) {
+      return frameTwoOpacity
+    } else if (index === 3) {
+      return frameThreeOpacity
+    }
   }
 
 	// A <AbsoluteFill> is just a absolutely positioned <div>!
@@ -85,19 +113,29 @@ export const FoodTemplate: React.FC<{}> = () => {
         </AbsoluteFill>
         {/*  screen one end  */}
 
+        <AbsoluteFill style={{opacity: frameOneOpacity}}>
+          <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[0]} />
+        </AbsoluteFill>	
+
+        <AbsoluteFill style={{opacity: frameTwoOpacity}}>
+          <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[1]} />
+        </AbsoluteFill>	
+
+        <AbsoluteFill style={{opacity: frameThreeOpacity}}>
+          <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[2]} />
+        </AbsoluteFill>	
+
         {/*  screen two start  */}
-        <AbsoluteFill style={{opacity: screenTwoOpacity}}>
-          <AbsoluteFill>
-            <ContentContainer templateConstant={TemplateConstant} templateContentConstant={TemplateContentConstant} />
-          </AbsoluteFill>	
-        
-        </AbsoluteFill>
+        {/* <AbsoluteFill style={{opacity: screenTwoOpacity}}>
+          { TemplateContentConstant.frames.length && TemplateContentConstant.frames.map((frameItem, i) => {
+            return <AbsoluteFill key={i} style={{opacity: getFrameOpacity(i + 1)}}>
+                <ContentContainer templateConstant={TemplateConstant} frameItem={frameItem} />
+              </AbsoluteFill>	
+            })
+            
+          }
+        </AbsoluteFill> */}
         {/*  screen two end  */}
-
-
-
-
-
 
       </ AbsoluteFill>
 		</AbsoluteFill>
