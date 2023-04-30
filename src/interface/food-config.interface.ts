@@ -1,7 +1,10 @@
 export interface FoodTemplateConfig {
   titleColor: string,
   subTitleColor: string,
-  themeColor: string
+  subTextColor: string,
+  themeColor: string,
+  logoFileName: string,
+  bgImageFileName: string
 }
 
 export interface FoodContentConfig {

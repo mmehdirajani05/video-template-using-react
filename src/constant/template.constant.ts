@@ -3,7 +3,10 @@ import { FoodContentConfig, FoodTemplateConfig } from "../interface/food-config.
 export const TemplateConstant: FoodTemplateConfig = {
   titleColor: 'white',
   subTitleColor: 'black',
-  themeColor: '#8e5123'
+  subTextColor: 'white',
+  themeColor: '#8e5123',
+  logoFileName: 'logo.png',
+  bgImageFileName: 'bg-image.jpg'
 }
 
 export const TemplateContentConstant: FoodContentConfig = {

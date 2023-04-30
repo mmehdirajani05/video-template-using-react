@@ -49,12 +49,6 @@ export const FoodTemplate: React.FC<{}> = () => {
 		[1, 0]
 	);
 
-  const screenTwoOpacity = interpolate(
-		frame,
-		[0, 90, 92, 300],
-		[0, 0 , 1, 0]
-	);
-
   const frameOneOpacity = interpolate(
 		frame,
 		[0, 100, 101, 200],
@@ -74,20 +68,10 @@ export const FoodTemplate: React.FC<{}> = () => {
 	);
 
   const bgImageStyles = {
-    backgroundImage: `url(${staticFile("bg-image.jpg")})`,
+    backgroundImage: `url(${staticFile(TemplateConstant.bgImageFileName)})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover'
-  }
-
-  const getFrameOpacity = (index: number) => {
-    if (index === 1) {
-      return frameOneOpacity
-    } else if (index === 2) {
-      return frameTwoOpacity
-    } else if (index === 3) {
-      return frameThreeOpacity
-    }
   }
 
 	// A <AbsoluteFill> is just a absolutely positioned <div>!
@@ -124,18 +108,6 @@ export const FoodTemplate: React.FC<{}> = () => {
         <AbsoluteFill style={{opacity: frameThreeOpacity}}>
           <ContentContainer templateConstant={TemplateConstant} frameItem={TemplateContentConstant.frames[2]} />
         </AbsoluteFill>	
-
-        {/*  screen two start  */}
-        {/* <AbsoluteFill style={{opacity: screenTwoOpacity}}>
-          { TemplateContentConstant.frames.length && TemplateContentConstant.frames.map((frameItem, i) => {
-            return <AbsoluteFill key={i} style={{opacity: getFrameOpacity(i + 1)}}>
-                <ContentContainer templateConstant={TemplateConstant} frameItem={frameItem} />
-              </AbsoluteFill>	
-            })
-            
-          }
-        </AbsoluteFill> */}
-        {/*  screen two end  */}
 
       </ AbsoluteFill>
 		</AbsoluteFill>

@@ -33,7 +33,7 @@ export const ContentContainer: React.FC<{
             { frameItem.fItems.map((item :any, i: number) => {
                 return (
                   <li key={i} >
-                    <PageTitle titleText={item} titleColor={templateConstant.titleColor} textOptions={{fontSize: 60, textAlign: 'left'}} />
+                    <PageTitle titleText={item} titleColor={templateConstant.subTextColor} textOptions={{fontSize: 60, textAlign: 'left'}} />
                   </li>
                 )
               })   

@@ -4,6 +4,7 @@ import {
   staticFile
 } from 'remotion';
 import { centerlized } from '../constant/styles.constant' 
+import { TemplateConstant } from '../constant/template.constant';
 
 export const Logo: React.FC = () => {
 	
@@ -15,7 +16,7 @@ export const Logo: React.FC = () => {
 
 	return (
 		<AbsoluteFill	style={centerlized}>
-			<Img style={logoStyle} src={staticFile("logo.png")} />
+			<Img style={logoStyle} src={staticFile(`${TemplateConstant.logoFileName}`)} />
 		</AbsoluteFill>
 	);
 };
