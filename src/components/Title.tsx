@@ -9,7 +9,7 @@ const title: React.CSSProperties = {
 	textAlign: 'center',
 	position: 'absolute',
 	bottom: 160,
-	width: '100%',
+	width: '100%'
 };
 
 const word: React.CSSProperties = {
@@ -21,14 +21,15 @@ const word: React.CSSProperties = {
 export const Title: React.FC<{
 	titleText: string;
 	titleColor: string;
-}> = ({titleText, titleColor}) => {
+	themeColor: string;
+}> = ({titleText, titleColor, themeColor}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
 
 	const words = titleText.split(' ');
 
 	return (
-		<h1 style={title}>
+		<h1 style={{...title, backgroundColor: themeColor}}>
 			{words.map((t, i) => {
 				const delay = i * 5;
 

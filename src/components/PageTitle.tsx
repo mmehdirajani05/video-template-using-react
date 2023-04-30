@@ -4,31 +4,29 @@ import {FONT_FAMILY} from '../constant/styles.constant';
 
 const title: React.CSSProperties = {
 	fontFamily: FONT_FAMILY,
-	fontWeight: 'bold',
-	fontSize: 100,
 	textAlign: 'center',
-	position: 'absolute',
-	bottom: 160,
 	width: '100%',
+  textTransform: 'capitalize'
 };
 
 const word: React.CSSProperties = {
 	marginLeft: 10,
 	marginRight: 10,
-	display: 'inline-block',
+	display: 'inline-block'
 };
 
-export const Title: React.FC<{
+export const PageTitle: React.FC<{
 	titleText: string;
 	titleColor: string;
-}> = ({titleText, titleColor}) => {
+	textOptions: any;
+}> = ({titleText, titleColor, textOptions}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
 
 	const words = titleText.split(' ');
 
 	return (
-		<h1 style={title}>
+		<h1 style={{...title, ...textOptions }}>
 			{words.map((t, i) => {
 				const delay = i * 5;
 
